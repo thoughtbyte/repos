@@ -42,7 +42,7 @@ export const saveRepo = (
 
   updateAllRepos(updatedRepos);
 
-  return getAllRepos();
+  return updatedRepos;
 };
 
 export const removeRepo = (repoKey: string) => {
@@ -50,4 +50,6 @@ export const removeRepo = (repoKey: string) => {
   const updatedRepos = omit(repos, repoKey);
 
   updateAllRepos(updatedRepos);
+
+  return updatedRepos;
 };

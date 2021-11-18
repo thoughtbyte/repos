@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
-import { saveRepo } from "../../../data/db";
+import Button from "../../elements/Button";
+import { saveRepo, removeRepo } from "../../../data/db";
 import styles from "./RepoListItem.module.css";
 
 type RepoListItemProps = {
@@ -20,6 +21,10 @@ const RepoListItem: FC<RepoListItemProps> = ({
   setRepoList,
 }) => {
   const removeNewUpdate = () => {
+    if (!newUpdate) {
+      return;
+    }
+
     const updatedRepoList = saveRepo(
       owner,
       repo,
@@ -27,6 +32,14 @@ const RepoListItem: FC<RepoListItemProps> = ({
       { tag_name: releaseName, published_at: releaseDate, body: releaseBody },
       { newUpdate: false }
     );
+
+    setRepoList(updatedRepoList);
+  };
+
+  const handleRemoveClick = () => {
+    // @TODO(.5): move a new generateRepoKey function to utils to use here
+    const repoKey = `${owner}/${repo}`;
+    const updatedRepoList = removeRepo(repoKey);
 
     setRepoList(updatedRepoList);
   };
@@ -50,6 +63,9 @@ const RepoListItem: FC<RepoListItemProps> = ({
         <summary>Release Notes</summary>
         <ReactMarkdown children={releaseBody} />
       </details>
+      <Button className={styles.remove} onClick={handleRemoveClick}>
+        X
+      </Button>
     </li>
   );
 };

@@ -10,6 +10,8 @@ This project uses react, octokit, react-markdown, dateformat, lodash.omit, and t
 
 - Built for desktop and mobile views.
 
+- When the app loads there is a loading state, though it will be a quick flash with a good internet connection and just a few repos. When you addm repo, the loading state is the disabled button. Error message flash appears if there is an error retrieving repos.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

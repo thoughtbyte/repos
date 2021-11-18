@@ -1,7 +1,12 @@
 .listItem {
-  border: 1px solid green;
+  border: 1px solid gray;
   margin-bottom: 2em;
   padding: 1em;
+  position: relative;
+}
+
+.listItem p {
+  margin-top: 0;
 }
 
 .details {
@@ -10,4 +15,12 @@
 
 .newUpdate {
   color: green;
+}
+
+.remove {
+  cursor: pointer;
+  font-size: 1.5em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }
