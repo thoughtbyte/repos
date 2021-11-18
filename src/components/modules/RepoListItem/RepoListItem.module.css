@@ -1,0 +1,13 @@
+.listItem {
+  border: 1px solid green;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+.details {
+  cursor: pointer;
+}
+
+.newUpdate {
+  color: green;
+}

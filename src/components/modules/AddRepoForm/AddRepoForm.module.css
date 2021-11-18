@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form input {
+    width: 33%;
+}
+
+.error {
+  color: red;
+  height: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .form input {
+      margin-bottom: 1em;
+      width: initial;
+  }
+}
